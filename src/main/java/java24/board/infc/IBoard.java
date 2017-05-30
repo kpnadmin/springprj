@@ -1,5 +1,4 @@
-package java24.board.infc;    
-   
+package java24.board.infc;
 
 import java.util.HashMap;
 import java.util.List;
@@ -74,12 +73,24 @@ public interface IBoard {
     
     ModelArticle getNextArticle(ModelArticle searchValue, ModelArticle updateValue);
     //
-
-
+    
+    ModelArticle getPrevArticle(ModelArticle key,ModelArticle values);
+    //
+    
+    ModelAttachfile getAttachFile(int attachFileNo);
+    //
+    
+    ModelAttachfile getAttachFileList(int articleNo);
+    //
+    
+    ModelAttachfile insertAttachFile(ModelAttachfile AttachFile);
+    //
+    
     
     ModelAttachfile deleteAttachFile(ModelAttachfile AttachFile );
     //
-        ModelComments getComment(Integer commentNo);
+    
+    ModelComments getComment(Integer commentNo);
     //
     
     List<ModelComments> getCommentList(Integer articleNo);
@@ -90,7 +101,7 @@ public interface IBoard {
     
     Integer updateComment(ModelArticle searchValue, ModelArticle updateValue);
     //
-    //
+    
     Integer deleteComment(ModelComments comments);
     
 }
