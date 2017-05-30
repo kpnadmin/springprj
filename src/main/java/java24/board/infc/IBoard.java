@@ -5,7 +5,9 @@ import java.util.List;
 
 import java23.mybatis.model.ModelBook;
 import java24.board.model.ModelArticle;
+import java24.board.model.ModelAttachfile;
 import java24.board.model.ModelBoard;
+import java24.board.model.ModelComments;
 
 public interface IBoard {
     
@@ -63,6 +65,22 @@ public interface IBoard {
     //
 
     //
-    
+
+    //
+    //
+    //
+    Integer getAttachFileList();
+    //
+    Integer deleteAttachFile(ModelAttachfile attachfile);
+    //
+    ModelComments getComment(Integer commentNo);
+    //
+    List<ModelComments> getCommentList(Integer articleNo);
+    //
+    Integer insertComment(ModelComments comments);
+    //
+    Integer updateComment(ModelArticle searchValue, ModelArticle updateValue);
+    //
+    Integer deleteComment(ModelComments comments);
     
 }
