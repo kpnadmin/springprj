@@ -11,13 +11,17 @@ import java24.board.model.ModelComments;
 
 public interface IBoard {
     
-    
+    /**
+     * 
+     * @param Board의 boardcd(data,free,qna)<- 스트링타입,primary key<br>
+              boardcd에 속하는 boardnm(게시판) 조회
+     * @return
+     */
     String getBoardName(String boardcd);
-    // resultType 메서드명 (parameter type 컬럼명);
-    //
+    
     
     ModelBoard  getBoardOne(String boardcd);
-    //
+    
     
     List<ModelBoard> getBoardList();
     //
