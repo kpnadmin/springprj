@@ -1,10 +1,18 @@
+#폴더 제외
+.git/
 .gradle/
+.idea/
+.settings/
 bin/
 build/
 logs/
-.idea/
-.settings/
 
+# 파일 제외 
+.classpath
+.project
+local.properties
+settings.gradle
+*.bak
 
 !src/main/java/
 src/main/java/*
