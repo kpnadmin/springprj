@@ -1,16 +1,5 @@
 package java24.board.infc;    
-    ModelArticle getPrevArticle(ModelArticle key,ModelArticle values);
-    //
-    
-    ModelAttachfile getAttachFile(int attachFileNo);
-    //
-
-    
-    ModelAttachfile getAttachFileList(int articleNo);
-    //
-
-    
-    ModelAttachfile insertAttachFile(ModelAttachfile AttachFile);
+   
 
 import java.util.HashMap;
 import java.util.List;
