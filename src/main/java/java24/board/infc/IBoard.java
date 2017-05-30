@@ -86,7 +86,7 @@ public interface IBoard {
     ModelAttachfile insertAttachFile(ModelAttachfile AttachFile);
     //
     
-    
+    //
     ModelAttachfile deleteAttachFile(ModelAttachfile AttachFile );
     //
     
