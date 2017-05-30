@@ -90,7 +90,7 @@ public interface IBoard {
     
     Integer updateComment(ModelArticle searchValue, ModelArticle updateValue);
     //
-    
+    //
     Integer deleteComment(ModelComments comments);
     
 }
