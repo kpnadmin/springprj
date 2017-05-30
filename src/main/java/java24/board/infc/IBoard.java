@@ -51,7 +51,7 @@ public interface IBoard {
     // int update(ModelBook wherebook, ModelBook setbook)  ;
     ModelArticle getNextArticle(ModelArticle searchValue, ModelArticle updateValue);
     //
-
+    //
     //
 
     //
