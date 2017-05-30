@@ -51,28 +51,18 @@ public interface IBoard {
     // int update(ModelBook wherebook, ModelBook setbook)  ;
     ModelArticle getNextArticle(ModelArticle searchValue, ModelArticle updateValue);
     //
+    ModelArticle getPrevArticle(HashMap searchWord);
+    
     //
+    ModelAttachfile getAttachFile(Integer attachFileNo);
+    
     //
-
+    List<ModelAttachfile> getAttachFileList(Integer articleNo);
     //
-
+    Integer insertAttachfile(ModelAttachfile attachfile);
     //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-    //
-    //
-    Integer getAttachFileList();
-    //
-    Integer deleteAttachFile(ModelAttachfile attachfile);
-    //
+   Integer  deleteAttachFile(ModelAttachfile attachfile);
+  
     ModelComments getComment(Integer commentNo);
     //
     List<ModelComments> getCommentList(Integer articleNo);

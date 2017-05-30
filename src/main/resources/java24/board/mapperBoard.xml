@@ -272,26 +272,26 @@
 
 
 
-    <select id="getAttachFile" parameterType="int" resultType="ModelAttachFile">
+    <select id="getAttachFile" parameterType="int" resultType="ModelAttachfile">
         SELECT attachfileno, filename, filetype, filesize, articleno
           FROM TB_BBS_Attachfile
          WHERE attachfileno = #{attachFileNo}
     </select>
     
-    <select id="getAttachFileList" parameterType="int" resultType="ModelAttachFile">
+    <select id="getAttachFileList" parameterType="int" resultType="ModelAttachfile">
         SELECT attachfileno, filename, filetype, filesize,articleno 
           FROM TB_BBS_Attachfile 
          WHERE articleno = #{articleNo} 
         ORDER BY attachfileno
     </select>
     
-    <insert id="insertAttachFile" parameterType="ModelAttachFile">
+    <insert id="insertAttachFile" parameterType="ModelAttachfile">
         INSERT INTO 
         TB_BBS_Attachfile (filename, filetype, filesize, articleno, InsertUID   , InsertDT   , UpdateUID   , UpdateDT    )
         VALUES        ( #{filename}, #{filetype}, #{filesize}, #{articleno}, #{InsertUID}, #{InsertDT}, #{UpdateUID}, #{UpdateDT} )
     </insert>
     
-    <delete id="deleteAttachFile" parameterType="ModelAttachFile">
+    <delete id="deleteAttachFile" parameterType="ModelAttachfile">
         DELETE FROM TB_BBS_Attachfile          
          WHERE 1 = 1 
           <if test="attachfileno != null and attachfileno != ''" >
