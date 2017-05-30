@@ -27,3 +27,9 @@ src/main/resources/*
 !src/test/java/
 src/test/java/*
 !src/test/java/java24/
+/gradlew
+/gradle
+/.gitignore.bak
+/gradlew.bat
+/local.properties
+/settings.gradle
