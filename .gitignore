@@ -19,3 +19,10 @@ src/main/resources/*
 !src/test/java/
 src/test/java/*
 !src/test/java/java24/
+/.gitignore.bak
+/gradlew
+/gradlew.bat
+/local.properties
+/players.dat
+/settings.gradle
+/gradle
