@@ -47,10 +47,10 @@ public interface IBoard {
     //
     Integer increaseHit(Integer articleNo);
     // int update(ModelBook wherebook, ModelBook setbook)  ;
-    ModelArticle getNextArticle(ModelArticle searchValue, ModelArticle updateValue);
-    //
-
-    //
+    ModelArticle getNextArticle(ModelArticle searchValue);
+    //parameterType="hashmap" resultType="ModelArticle"
+    ModelArticle getPrevArticle(ModelArticle searchValue);
+    //getPrevArticle" parameterType="hashmap" resultType="ModelArticle"
 
     //
 
