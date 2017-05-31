@@ -88,56 +88,63 @@ public interface IBoard {
     Integer insertBoardList(java.util.List  list);
     
     /**
-     * 
-     * 
+     * Article 테이블의 모든컬럼을 카운트<br>
+     * 기본조건 boardcd=boardcd<br>
+     * if문 1개
+     * searchWord != NULL, !='' 이면 아래 조건 추가<br>
+     * AND (title LIKE '%searchWord%'<br>
+     * OR content LIKE '%searchWord%') 추가
      */
     Integer getArticleTotalRecord(ModelArticle searchValue, ModelArticle updateValue);
     
     /**
-     * 
-     * 
+     * Article테이블에서 키워드를 조회<br>
+     * start,end 까지 키워드를 테이블내에서 조회하고 데이터 반환
      */
     ModelArticle getArticleList(ModelArticle searchValue, ModelArticle updateValue);
     
     /**
-     * 
-     * 
+     * Article테이블에서 articleno 조회
      */
     ModelArticle getArticle(Integer articleNo);
     
     /**
-     * 
-     * 
+     * Article테이블 insert
      */
     Integer insertArticle(ModelArticle article);
     
     /**
-     * 
-     * 
+     * Article테이블 update<br>
+     * hashmap 키워드 searchValue,updateValue 두개 사용<br>
+     * if 조건 5개<br>
+     * boardcd,articleno,title,email,UseYN <-5개 조건 값이 있는것으로 조회
      */
     Integer updateArticle(ModelArticle searchValue, ModelArticle updateValue);
     
     /**
-     * 
-     * 
+     * Article테이블 delete<br>
+     * if 조건 4개<br>
+     * articleno,boardcd,email,UseYN 으로 조회 삭제
      */
     Integer deleteArticle(ModelArticle ModelArticle);
     
     /**
-     * 
-     * 
+     * Article테이블 조회횟수 증가<br>
+     * articleno=articleno 조건으로 hit 증가
      */
     Integer increaseHit(Integer articleNo);
     
     /**
-     * 
-     * 
+     * hashmap을 인자로 받고 <br>
+     * boardcd,articleno,searchWord 사용
+     * 자세한건 모르겠음.
      */
     ModelArticle getNextArticle(ModelArticle searchValue, ModelArticle updateValue);
     
     /**
-     * 
-     * 
+     * hashmap을 인자로 받고 <br>
+     * boardcd,articleno,searchWord 사용
+     * 자세한건 모르겠음.
      */
     ModelArticle getPrevArticle(ModelArticle key,ModelArticle values);
     
