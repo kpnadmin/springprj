@@ -7,6 +7,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java23.mybatis.service.ServiceBook;
+import java24.board.dao.DaoBoard;
+import java24.board.infc.IBoard;
+import java24.board.model.ModelArticle;
+import java24.board.model.ModelAttachfile;
+import java24.board.model.ModelBoard;
+import java24.board.model.ModelComments;
 
 import java.util.List;
 
@@ -118,7 +124,7 @@ public class ServiceBoard implements IBoard{
     @Override
     public Integer updateArticle(ModelArticle searchValue,
             ModelArticle updateValue) {
-        
+       int result = 0 ;
         return null;
     }
 
@@ -199,6 +205,144 @@ public class ServiceBoard implements IBoard{
     @Override
     public Integer deleteComment(ModelComments comments) {
         
+        return null;
+    }
+
+    @Override
+    public ModelBoard getBoardOne(String boardcd) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer insertBoard(ModelBoard board) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer updateBoard(ModelBoard searchValue, ModelBoard updateValue) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer deleteBoard(ModelBoard board) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelBoard getBoardSearch(ModelBoard board) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelBoard getBoardPaging(ModelBoard searchValue,
+            ModelBoard updateValue) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer getArticleTotalRecord(ModelArticle searchValue,
+            ModelArticle updateValue) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelArticle getArticleList(ModelArticle searchValue,
+            ModelArticle updateValue) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelArticle getArticle(Integer articleNo) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer insertArticle(ModelArticle article) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer updateArticle(ModelArticle searchValue,
+            ModelArticle updateValue) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer deleteArticle(ModelArticle ModelArticle) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelArticle getNextArticle(ModelArticle searchValue,
+            ModelArticle updateValue) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelArticle getPrevArticle(ModelArticle key, ModelArticle values) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelAttachfile getAttachFile(int attachFileNo) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelAttachfile getAttachFileList(int articleNo) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelAttachfile insertAttachFile(ModelAttachfile AttachFile) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelAttachfile deleteAttachFile(ModelAttachfile AttachFile) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ModelComments getComment(Integer commentNo) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer insertComment(ModelComments comments) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer updateComment(ModelArticle searchValue,
+            ModelArticle updateValue) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Integer deleteComment(ModelComments comments) {
+        // TODO Auto-generated method stub
         return null;
     }
     
