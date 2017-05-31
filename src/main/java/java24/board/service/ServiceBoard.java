@@ -9,12 +9,7 @@ import org.springframework.stereotype.Service;
 import java23.mybatis.service.ServiceBook;
 
 import java.util.List;
-import java24.board.dao.DaoBoard;
-import java24.board.infc.IBoard;
-import java24.board.model.ModelArticle;
-import java24.board.model.ModelAttachfile;
-import java24.board.model.ModelBoard;
-import java24.board.model.ModelComments;
+
 
 @Service("serviceboard")
 public class ServiceBoard implements IBoard{
