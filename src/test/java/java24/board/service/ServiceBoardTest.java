@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class ServiceBoardTest {
     private  static IBoard service = null;
     @BeforeClass
-    public void setUpBeforeClass() throws Exception {
+    public static void setUpBeforeClass() throws Exception {
         try{
             ApplicationContext context = new ClassPathXmlApplicationContext("classpath:java24/board/ApplicationContext.xml");
             service = context.getBean("serviceboard", IBoard.class);
@@ -28,7 +28,7 @@ public class ServiceBoardTest {
     @Test
     public void getBoardName() throws Exception {
         String result = service.getBoardName("data");
-        assertSame(result, "data");
+        assertEquals(result, "자료실");
     }
 
     @Test

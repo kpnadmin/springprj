@@ -25,7 +25,7 @@ public class DaoBoard implements IBoard{
     
     @Override
     public String getBoardName(String boardcd) {
-        String result = "";
+        String result = null;
         result = session.selectOne("mapper.mapperBoard.getBoardName",boardcd);
         return result;
     }
