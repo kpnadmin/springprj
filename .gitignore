@@ -32,3 +32,4 @@ src/test/java/*
 /gradlew.bat
 /local.properties
 /settings.gradle
+/src/main/resources/java24/board/ApplicationContext.xml
