@@ -20,7 +20,6 @@ src/main/java/*
 
 !src/main/resources/
 src/main/resources/*
-!src/main/resources/*.xml
 !src/main/resources/*.properties
 !src/main/resources/java24/
 
