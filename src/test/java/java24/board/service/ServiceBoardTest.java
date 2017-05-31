@@ -29,8 +29,6 @@ public class ServiceBoardTest {
     public void getBoardName() throws Exception {
         String result = service.getBoardName("data");
         assertEquals(result, "자료실");
-        assertEquals(result, "자료실");
-        
     }
 
     @Test

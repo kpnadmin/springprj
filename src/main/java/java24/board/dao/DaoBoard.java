@@ -2,6 +2,7 @@ package java24.board.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,7 +94,12 @@ public class DaoBoard implements IBoard{
 
 	@Override
 	public ModelArticle getArticleList(ModelArticle searchValue, ModelArticle updateValue) {
-		
+		Map<String, Object> map = new HashMap();
+		map.put("boardcd", boardcd);
+		map.put("searchWord", searchWord);
+		map.put("start", start);
+		map.put("end", end);
+	
 		return null;
 	}
 
