@@ -27,6 +27,8 @@
           FROM TB_Bbs_Board 
     </select>
     
+        
+    
      
     <insert id="insertBoard" parameterType="ModelBoard">
         INSERT INTO 

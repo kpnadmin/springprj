@@ -3,7 +3,6 @@ package java24.board.service;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -15,8 +14,6 @@ import java24.board.model.ModelAttachfile;
 import java24.board.model.ModelBoard;
 import java24.board.model.ModelComments;
 
-
-@Service("serviceboard")
 public class ServiceBoard implements IBoard{
 
     //private static Logger log = LoggerFactory.getLogger(ServiceBoard.class);
