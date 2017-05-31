@@ -8,13 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import java23.mybatis.model.ModelBook;
 import java24.board.infc.IBoard;
 import java24.board.model.ModelArticle;
 import java24.board.model.ModelAttachfile;
 import java24.board.model.ModelBoard;
 import java24.board.model.ModelComments;
 
-@Repository("daobook")
+@Repository("daoboard")
 public class DaoBoard implements IBoard{
 
     @Autowired
@@ -24,33 +25,31 @@ public class DaoBoard implements IBoard{
     
     @Override
     public String getBoardName(String boardcd) {
-       
-        return null;
+        String result = "";
+        result = session.selectOne("mapper.mapperBoard.getBoardName",boardcd);
+        return result;
     }
 
     @Override
     public ModelBoard getBoardOne(String boardcd) {
-       
-        return null;
+        ModelBoard result =null;
+        result = session.selectOne("mapper.mapperBoard.getBoardOne",boardcd);
+        return result;
     }
 
     @Override
     public List<ModelBoard> getBoardList() {
-       
-        return null;
+        List<ModelBoard> result = null;
+        result = session.selectList("mapper.mapperBook.getBoardList");
+        return result;
     }
 
     @Override
     public List<ModelBoard> getBoardListResultMap() {
-       
+        ModelBoard result =null;
         return null;
     }
 
-    @Override
-    public HashMap getBoardCustomMap() {
-       
-        return null;
-    }
 
     @Override
     public Integer insertBoard(ModelBoard board) {
