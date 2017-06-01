@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java23.mybatis.service.ServiceBook;
+import java23.mybatis.model.ModelBook;
 import java24.board.dao.DaoBoard;
 import java24.board.infc.IBoard;
 import java24.board.model.ModelArticle;
@@ -43,13 +43,29 @@ public class ServiceBoard implements IBoard{
     @Override
     public ModelBoard getBoardOne(String boardcd) {
         
-        return null;
+        ModelBoard result = null;
+        try {
+            result = dao.getBoardOne(boardcd);
+        } catch (Exception e) {
+            log.error("getBoardOne"+e.getMessage());
+
+        }
+        return result;
     }
 
     @Override
     public List<ModelBoard> getBoardList() {
         
-        return null;
+        List<ModelBoard> result = null;
+        try {
+            result = dao.getBoardList();
+        } catch (Exception e) {
+            log.error("SelectAll"+e.getMessage());
+
+        }
+
+
+        return result;
     }
 
     @Override
@@ -61,7 +77,16 @@ public class ServiceBoard implements IBoard{
     @Override
     public Integer insertBoard(ModelBoard board) {
         
-        return null;
+  int result = -1 ; 
+        
+        try {
+            result = dao.insertBoard(board);
+        } catch (Exception e) {
+            log.error("insertBoard"+e.getMessage());
+
+        }
+        
+        return result;
     }
 
     @Override
@@ -77,14 +102,13 @@ public class ServiceBoard implements IBoard{
     }
 
     @Override
-    public ModelBoard getBoardSearch(ModelBoard board) {
+    public List<ModelBoard> getBoardSearch(ModelBoard board) {
         
         return null;
     }
 
     @Override
-    public ModelBoard getBoardPaging(ModelBoard searchValue,
-            ModelBoard updateValue) {
+    public List<ModelBoard> getBoardPaging(String boardcd, String boardnm, Boolean UseYN) {
         
         return null;
     }
@@ -96,17 +120,30 @@ public class ServiceBoard implements IBoard{
     }
 
     @Override
-    public Integer getArticleTotalRecord(ModelArticle searchValue,
-            ModelArticle updateValue) {
+    public Integer getArticleTotalRecord(String boardcd, String searchWord) {
+        int result = -1 ; 
+        try {
+            result = dao.getArticleTotalRecord(boardcd, searchWord);
+        } catch (Exception e) {
+            log.error("getArticleTotalRecord"+e.getMessage());
+
+        }
         
-        return null;
+        return result;
     }
 
     @Override
-    public ModelArticle getArticleList(ModelArticle searchValue,
-            ModelArticle updateValue) {
-        
-        return null;
+    public List<ModelArticle> getArticleList(String boardcd, String searchWord, int start, int end) {
+        List<ModelArticle> result = null;
+        try {
+            result = dao.getArticleList(boardcd, searchWord,  start,  end);
+        } catch (Exception e) {
+            log.error("getArticleList"+e.getMessage());
+
+        }
+
+
+        return result;
     }
 
     @Override
@@ -129,7 +166,7 @@ public class ServiceBoard implements IBoard{
     }
 
     @Override
-    public Integer deleteArticle(ModelArticle ModelArticle) {
+    public Integer deleteArticle(ModelArticle article) {
         
         return null;
     }
@@ -208,143 +245,7 @@ public class ServiceBoard implements IBoard{
         return null;
     }
 
-    @Override
-    public ModelBoard getBoardOne(String boardcd) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer insertBoard(ModelBoard board) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer updateBoard(ModelBoard searchValue, ModelBoard updateValue) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer deleteBoard(ModelBoard board) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelBoard getBoardSearch(ModelBoard board) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelBoard getBoardPaging(ModelBoard searchValue,
-            ModelBoard updateValue) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer getArticleTotalRecord(ModelArticle searchValue,
-            ModelArticle updateValue) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelArticle getArticleList(ModelArticle searchValue,
-            ModelArticle updateValue) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelArticle getArticle(Integer articleNo) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer insertArticle(ModelArticle article) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer updateArticle(ModelArticle searchValue,
-            ModelArticle updateValue) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer deleteArticle(ModelArticle ModelArticle) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelArticle getNextArticle(ModelArticle searchValue,
-            ModelArticle updateValue) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelArticle getPrevArticle(ModelArticle key, ModelArticle values) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelAttachfile getAttachFile(int attachFileNo) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelAttachfile getAttachFileList(int articleNo) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelAttachfile insertAttachFile(ModelAttachfile AttachFile) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelAttachfile deleteAttachFile(ModelAttachfile AttachFile) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ModelComments getComment(Integer commentNo) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer insertComment(ModelComments comments) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer updateComment(ModelArticle searchValue,
-            ModelArticle updateValue) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Integer deleteComment(ModelComments comments) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+ 
     
     
 }

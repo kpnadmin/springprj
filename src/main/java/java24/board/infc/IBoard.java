@@ -67,7 +67,7 @@ public interface IBoard {
      * 둘다 아닐시 1=1 조건으로 반환
      */    
     
-    ModelBoard getBoardSearch(ModelBoard board);
+    List<ModelBoard>  getBoardSearch(ModelBoard board);
     /**
      * Board테이블에서 boardcd,boardnm,UseYN 값 반환 <br>
      * 매개변수로 hashmap이 사용되며 hash맵에 4개의 변수 사용 <br>
@@ -79,7 +79,7 @@ public interface IBoard {
      * 마지막으로 start,end 범위 조회
      */    
     
-    ModelBoard getBoardPaging(ModelBoard searchValue, ModelBoard updateValue);
+    List<ModelBoard> getBoardPaging(String boardcd, String boardnm, Boolean UseYN);
     
     /**
      * Board테이블에 추가할 item.(boardcd,boardnm,UseYN)을 리스트에 추가<br>
@@ -95,13 +95,13 @@ public interface IBoard {
      * AND (title LIKE '%searchWord%'<br>
      * OR content LIKE '%searchWord%') 추가
      */
-    Integer getArticleTotalRecord(ModelArticle searchValue, ModelArticle updateValue);
+    Integer getArticleTotalRecord(String boardcd, String searchWord);
     
     /**
      * Article테이블에서 키워드를 조회<br>
      * start,end 까지 키워드를 테이블내에서 조회하고 데이터 반환
      */
-    ModelArticle getArticleList(ModelArticle searchValue, ModelArticle updateValue);
+    List<ModelArticle> getArticleList(String boardcd, String searchWord, int start, int end);
     
     /**
      * Article테이블에서 articleno 조회
@@ -126,7 +126,7 @@ public interface IBoard {
      * if 조건 4개<br>
      * articleno,boardcd,email,UseYN 으로 조회 삭제
      */
-    Integer deleteArticle(ModelArticle ModelArticle);
+    Integer deleteArticle(ModelArticle article);
     
     /**
      * Article테이블 조회횟수 증가<br>
