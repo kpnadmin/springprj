@@ -147,9 +147,15 @@ public class ServiceBoard implements IBoard{
     }
 
     @Override
-    public ModelArticle getArticle(Integer articleNo) {
-        
-        return null;
+    public ModelArticle getArticle(Integer articleno) {
+        ModelArticle result = null;
+        try {
+            result = dao.getArticle(articleno);
+        } catch (Exception e) {
+            log.error("getArticle"+e.getMessage());
+
+        }
+        return result;
     }
 
     @Override
@@ -172,69 +178,105 @@ public class ServiceBoard implements IBoard{
     }
 
     @Override
-    public Integer increaseHit(Integer articleNo) {
+    public Integer increaseHit(Integer articleno) {
         
         return null;
     }
 
     @Override
-    public ModelArticle getNextArticle(ModelArticle searchValue,
-            ModelArticle updateValue) {
+    public ModelArticle getNextArticle(String boardcd, int articleno, String searchWord) {
+        ModelArticle result = null;
+        try {
+            result = dao.getNextArticle(boardcd, articleno, searchWord);
+        } catch (Exception e) {
+            log.error("getNextArticle"+e.getMessage());
+
+        }
+        return result;
+    }
+
+    @Override
+    public ModelArticle getPrevArticle(String boardcd, int articleno, String searchWord) {
         
         return null;
     }
 
     @Override
-    public ModelArticle getPrevArticle(ModelArticle key, ModelArticle values) {
+    public ModelAttachfile getAttachFile(int attachfileno) {
+        
+        ModelAttachfile result = null;
+        try {
+            result = dao.getAttachFile(attachfileno);
+        } catch (Exception e) {
+            log.error("getAttachFile"+e.getMessage());
+
+        }
+        return result;
+    }
+
+    @Override
+    public List<ModelAttachfile> getAttachFileList(int articleno) {
         
         return null;
     }
 
     @Override
-    public ModelAttachfile getAttachFile(int attachFileNo) {
+    public Integer insertAttachFile(ModelAttachfile Attachfile) {
         
         return null;
     }
 
     @Override
-    public ModelAttachfile getAttachFileList(int articleNo) {
+    public Integer deleteAttachFile(ModelAttachfile Attachfile) {
         
         return null;
     }
 
     @Override
-    public ModelAttachfile insertAttachFile(ModelAttachfile AttachFile) {
-        
-        return null;
+    public ModelComments getComment(Integer commentno) {
+        ModelComments result = null;
+        try {
+            result = dao.getComment(commentno);
+        } catch (Exception e) {
+            log.error("getComment"+e.getMessage());
+
+        }
+        return result;
     }
 
     @Override
-    public ModelAttachfile deleteAttachFile(ModelAttachfile AttachFile) {
+    public List<ModelComments> getCommentList(Integer articleno) {
         
-        return null;
-    }
+        
+        List<ModelComments> result = null;
+        try {
+            result = dao.getCommentList(articleno);
+        } catch (Exception e) {
+            log.error("getCommentList"+e.getMessage());
 
-    @Override
-    public ModelComments getComment(Integer commentNo) {
-        
-        return null;
-    }
+        }
 
-    @Override
-    public List<ModelComments> getCommentList(Integer articleNo) {
-        
-        return null;
+
+        return result;
     }
 
     @Override
     public Integer insertComment(ModelComments comments) {
+        int result = -1 ; 
         
-        return null;
+        try {
+            result = dao.insertComment(comments);
+        } catch (Exception e) {
+            log.error("insertComment"+e.getMessage());
+
+        }
+        
+        return result;
     }
 
     @Override
-    public Integer updateComment(ModelArticle searchValue,
-            ModelArticle updateValue) {
+    public Integer updateComment(ModelComments searchValue,
+            ModelComments updateValue) {
         
         return null;
     }

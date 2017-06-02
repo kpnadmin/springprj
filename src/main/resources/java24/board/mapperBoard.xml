@@ -225,14 +225,14 @@
                   WHERE boardcd = #{boardcd} 
                     AND articleno = #{articleno}
                     <if test="searchWord != null">
-                        AND (title LIKE '%#{searchWord}%' OR
-                        content LIKE '%#{searchWord}%')
+                        AND (title LIKE CONCAT('%', #{searchWord},'%') OR
+                        content LIKE CONCAT('%', #{searchWord},'%') )
                     </if> 
                     ORDER BY articleno
                 ) a
                 , (SELECT @RNUM:=0) b
         ) c
-        WHERE r = 1
+        WHERE c.r = 1
     </select>
     
     <select id="getPrevArticle" parameterType="hashmap" resultType="ModelArticle">

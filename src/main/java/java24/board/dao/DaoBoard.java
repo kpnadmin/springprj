@@ -33,7 +33,6 @@ public class DaoBoard implements IBoard{
 	@Override
 	public ModelBoard getBoardOne(String boardcd) {
 		ModelBoard result = null;
-		
         result = session.selectOne("mapper.mapperBoard.getBoardOne",boardcd);
         return result;
 	}
@@ -127,9 +126,11 @@ public class DaoBoard implements IBoard{
 	}
 
 	@Override
-	public ModelArticle getArticle(Integer articleNo) {
-		
-		return null;
+	public ModelArticle getArticle(Integer articleno) {
+	    ModelArticle result = null;
+        
+        result = session.selectOne("mapper.mapperBoard.getArticle",articleno);
+        return result;
 	}
 
 	@Override
@@ -158,75 +159,103 @@ public class DaoBoard implements IBoard{
 	}
 
 	@Override
-	public Integer increaseHit(Integer articleNo) {
-		
-		return null;
+	public Integer increaseHit(Integer articleno) {
+	    int result = -1 ;
+        result = session.update("mapper.mapperBoard.increaseHit", articleno);
+         return result;
 	}
 
 	@Override
-	public ModelArticle getNextArticle(ModelArticle searchValue, ModelArticle updateValue) {
-		
-		return null;
+	public ModelArticle getNextArticle(String boardcd, int articleno, String searchWord) {
+	    ModelArticle result = null;
+	    Map<String, Object> map = new HashMap();
+        map.put("boardcd", boardcd);
+        map.put("articleno", articleno);
+        map.put("searchWord", searchWord);
+       
+        result = session.selectOne("mapper.mapperBoard.getNextArticle",map);
+        return result;
 	}
 
 	@Override
-	public ModelArticle getPrevArticle(ModelArticle key, ModelArticle values) {
-		
-		return null;
+	public ModelArticle getPrevArticle(String boardcd, int articleno, String searchWord) {
+	    ModelArticle result = null;
+        Map<String, Object> map = new HashMap();
+        map.put("boardcd", boardcd);
+        map.put("articleno", articleno);
+        map.put("searchWord", searchWord);
+       
+        result = session.selectOne("mapper.mapperBoard.getNextArticle",map);
+        return result;
 	}
 
 	@Override
-	public ModelAttachfile getAttachFile(int attachFileNo) {
-		
-		return null;
+	public ModelAttachfile getAttachFile(int attachfileno) {
+	    ModelAttachfile result = null;
+        result = session.selectOne("mapper.mapperBoard.getAttachFile",attachfileno);
+        return result;
+        
 	}
 
 	@Override
-	public ModelAttachfile getAttachFileList(int articleNo) {
-		
-		return null;
+	public List<ModelAttachfile> getAttachFileList(int articleno) {
+	    List<ModelAttachfile> result = null;  
+        result = session.selectList("mapper.mapperBoard.getAttachFileList",articleno );
+        return result;
 	}
 
 	@Override
-	public ModelAttachfile insertAttachFile(ModelAttachfile AttachFile) {
-		
-		return null;
+	public Integer insertAttachFile(ModelAttachfile Attachfile) {
+	    int result = -1 ;
+        result = session.insert("mapper.mapperBoard.insertAttachFile", Attachfile);
+         return result;
 	}
 
 	@Override
-	public ModelAttachfile deleteAttachFile(ModelAttachfile AttachFile) {
-		
-		return null;
+	public Integer deleteAttachFile(ModelAttachfile Attachfile) {
+	    int result = -1 ;
+        result = session.delete("mapper.mapperBoard.deleteAttachFile", Attachfile);
+         return result;
 	}
 
 	@Override
-	public ModelComments getComment(Integer commentNo) {
-		
-		return null;
+	public ModelComments getComment(Integer commentno) {
+	    ModelComments result = null;
+        
+        result = session.selectOne("mapper.mapperBoard.getComment",commentno);
+        return result;
 	}
 
 	@Override
-	public List<ModelComments> getCommentList(Integer articleNo) {
-		
-		return null;
+	public List<ModelComments> getCommentList(Integer articleno) {
+	    List<ModelComments> result = null;  
+        result = session.selectList("mapper.mapperBoard.getCommentList", articleno);
+        return result;
 	}
 
 	@Override
 	public Integer insertComment(ModelComments comments) {
-		
-		return null;
+	    int result = -1 ;
+        result = session.insert("mapper.mapperBoard.insertComment", comments);
+         return result;
 	}
 
 	@Override
-	public Integer updateComment(ModelArticle searchValue, ModelArticle updateValue) {
-		
-		return null;
+	public Integer updateComment(ModelComments searchValue, ModelComments updateValue) {
+	    Map<String, ModelComments> map = new HashMap<String, ModelComments>();
+        map.put("searchValue", searchValue);
+        map.put("updateValue", updateValue);
+        
+        int result = -1 ;
+        result = session.update("mapper.mapperBoard.updateComment", map);
+         return result;
 	}
 
 	@Override
 	public Integer deleteComment(ModelComments comments) {
-		
-		return null;
+	    int result = -1 ;
+        result = session.delete("mapper.mapperBoard.deleteBoard", comments);
+         return result;
 	}
     
     

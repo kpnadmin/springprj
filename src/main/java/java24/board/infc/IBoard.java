@@ -106,7 +106,7 @@ public interface IBoard {
     /**
      * Article테이블에서 articleno 조회
      */
-    ModelArticle getArticle(Integer articleNo);
+    ModelArticle getArticle(Integer articleno);
     
     /**
      * Article테이블 insert
@@ -132,21 +132,21 @@ public interface IBoard {
      * Article테이블 조회횟수 증가<br>
      * articleno=articleno 조건으로 hit 증가
      */
-    Integer increaseHit(Integer articleNo);
+    Integer increaseHit(Integer articleno);
     
     /**
      * hashmap을 인자로 받고 <br>
      * boardcd,articleno,searchWord 사용
      * 자세한건 모르겠음.
      */
-    ModelArticle getNextArticle(ModelArticle searchValue, ModelArticle updateValue);
+    ModelArticle getNextArticle(String boardcd, int articleno, String searchWord);
     
     /**
      * hashmap을 인자로 받고 <br>
      * boardcd,articleno,searchWord 사용
      * 자세한건 모르겠음.
      */
-    ModelArticle getPrevArticle(ModelArticle key,ModelArticle values);
+    ModelArticle getPrevArticle(String boardcd, int articleno, String searchWord);
     
     /**
      * 
@@ -158,7 +158,7 @@ public interface IBoard {
      * 
      * 
      */
-    ModelAttachfile getAttachFileList(int articleNo);
+    List<ModelAttachfile> getAttachFileList(int articleno);
     
     /**
      * 
@@ -166,7 +166,7 @@ public interface IBoard {
               commentno에 속하는 컬럼 삭제
      * @return Integer
      */
-    ModelAttachfile insertAttachFile(ModelAttachfile AttachFile);
+    Integer insertAttachFile(ModelAttachfile Attachfile);
     
     /**
      * 
@@ -174,7 +174,7 @@ public interface IBoard {
               commentno에 속하는 컬럼 삭제
      * @return Integer
      */
-    ModelAttachfile deleteAttachFile(ModelAttachfile AttachFile );
+    Integer deleteAttachFile(ModelAttachfile Attachfile );
     
     
     /**
@@ -189,11 +189,11 @@ public interface IBoard {
               commentno에 속하는 컬럼 조회
      * @return List
      */
-    List<ModelComments> getCommentList(Integer articleNo);
+    List<ModelComments> getCommentList(Integer articleno);
     
     /**
      * 
-     * @param comments의 articleNo(1)<- int <br> articleno(1) < <br>  email(aa@aa.co.kr)  <br> memo("")  <br>  regdate("")  <br> InsertUID("")  <br> InsertDT("")  <br> UpdateUID("")  <br> UpdateDT("")  <br>
+     * @param comments의 articleno(1)<- int <br> articleno(1) < <br>  email(aa@aa.co.kr)  <br> memo("")  <br>  regdate("")  <br> InsertUID("")  <br> InsertDT("")  <br> UpdateUID("")  <br> UpdateDT("")  <br>
               commentno에 속하는 컬럼 insert
      * @return Integer
      */
@@ -204,7 +204,7 @@ public interface IBoard {
      *                 에 속하는 컬럼 update
      * @return Integer
      */
-    Integer updateComment(ModelArticle searchValue, ModelArticle updateValue);
+    Integer updateComment(ModelComments searchValue, ModelComments updateValue);
    
     /**
      * 

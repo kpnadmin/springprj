@@ -9,11 +9,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java23.mybatis.model.ModelBook;
 import java24.board.infc.IBoard;
 import java24.board.model.ModelArticle;
+import java24.board.model.ModelAttachfile;
 import java24.board.model.ModelBoard;
+import java24.board.model.ModelComments;
 
 import static org.junit.Assert.*;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -132,7 +136,7 @@ public class ServiceBoardTest {
         
         List<ModelArticle> result = service.getArticleList(boardcd,searchWord,start,end);
         
-        assertEquals(result, 5);
+        assertEquals(result.size(), 5);
         
     }
 
@@ -142,7 +146,8 @@ public class ServiceBoardTest {
         int articleno = 3;
         ModelArticle result = service.getArticle(articleno);
         
-        assertEquals(result.getBoardcd(), "free");
+        assertEquals(result.getContent(), "article test 03");
+        
         
     }
 
@@ -168,7 +173,13 @@ public class ServiceBoardTest {
 
     @Test
     public void getNextArticle() throws Exception {
-
+        ModelArticle result = new ModelArticle();
+        String boardcd = "free";
+        int articleno = 1;
+        String searchWord = "article test 01";
+        result = service.getNextArticle(boardcd,articleno, searchWord);
+        
+        assertEquals(result.getTitle(), "article test 02");
     }
 
     @Test
@@ -178,7 +189,10 @@ public class ServiceBoardTest {
 
     @Test
     public void getAttachFile() throws Exception {
-
+        int attachfileno = 3;
+        ModelAttachfile result = service.getAttachFile(attachfileno);
+        
+        assertSame(result.getAttachfileno(), attachfileno);
     }
 
     @Test
@@ -198,17 +212,44 @@ public class ServiceBoardTest {
 
     @Test
     public void getComment() throws Exception {
-
+        ModelComments result = new ModelComments();
+        int commento = 1;
+        result = service.getComment(commento);
+        
+        assertEquals(result.getMemo(), "comment test");
     }
 
     @Test
     public void getCommentList() throws Exception {
-
+       
+        int articleno = 1;
+        List<ModelComments> result= service.getCommentList(articleno);
+        assertSame(result.size(), 2);
     }
 
     @Test
     public void insertComment() throws Exception {
-
+        
+        
+        ModelComments comments = new ModelComments();
+        comments.setArticleno(2);
+        comments.setEmail("asad@aa.co.kr");
+        comments.setMemo("comment test");
+        //
+        Calendar cal = Calendar.getInstance();
+     // (2) 출력 형태를 지정하기 위해 Formatter를 얻는다.
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy:MM:dd-hh:mm:ss");
+     // (3) 출력형태에 맞는 문자열을 얻는다.
+         String datetime1 = sdf1.format(cal.getTime());
+      
+         comments.setRegdate(Date.valueOf(datetime1));
+         comments.setInsertUID(null);
+         comments.setInsertDT(null);
+         comments.setUpdateUID(null);
+         comments.setUpdateDT(null);
+      
+        int result = service.insertComment(comments);
+        assertSame(result, 1);
     }
 
     @Test
