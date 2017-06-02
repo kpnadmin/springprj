@@ -248,11 +248,11 @@ public class ServiceBoardTest {
     public void getNextArticle() throws Exception {
         ModelArticle result = new ModelArticle();
         String boardcd = "free";
-        int articleno = 1;
-        String searchWord = "article test 01";
+        int articleno = 3;
+        String searchWord =null;
         result = service.getNextArticle(boardcd,articleno, searchWord);
         
-        assertEquals(result.getTitle(), "article test 02");
+        assertEquals(result.getTitle(), "article test 04");
     }
 
     @Test
@@ -310,12 +310,8 @@ public class ServiceBoardTest {
         comments.setMemo("comment test");
         //
         Calendar cal = Calendar.getInstance();
-     // (2) 출력 형태를 지정하기 위해 Formatter를 얻는다.
-        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy:MM:dd-hh:mm:ss");
-     // (3) 출력형태에 맞는 문자열을 얻는다.
-         String datetime1 = sdf1.format(cal.getTime());
-      
-         comments.setRegdate(Date.valueOf(datetime1));
+        
+         comments.setRegdate(new java.sql.Date(cal.getTimeInMillis()));
          comments.setInsertUID(null);
          comments.setInsertDT(null);
          comments.setUpdateUID(null);
