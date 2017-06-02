@@ -14,6 +14,7 @@ import java24.board.model.ModelBoard;
 import static org.junit.Assert.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -85,27 +86,100 @@ public class ServiceBoardTest {
 
     @Test
     public void updateBoard() throws Exception {
-
+        
+        ModelBoard searchValue = new ModelBoard();
+        
+        searchValue.setBoardcd("faq");
+        searchValue.setBoardnm(null);
+        searchValue.setUseYN(true);
+        
+        ModelBoard updateValue= new ModelBoard();
+        updateValue.setBoardnm("자료실");
+        updateValue.setUseYN(true);
+        updateValue.setUpdateUID("son");
+        updateValue.setUpdateDT(Date.valueOf("2017-06-02"));
+        
+        int result = service.updateBoard(searchValue, updateValue);
+        
+        if(result>=0){
+            assertTrue(true);
+        }else{
+            assertTrue(false);
+        }
     }
 
     @Test
     public void deleteBoard() throws Exception {
-
+        
+        ModelBoard board = new ModelBoard();
+        
+        board.setBoardcd("faq");
+        board.setBoardnm(null);
+        board.setUseYN(null);
+        
+        int result = service.deleteBoard(board);
+        
+        if(result>=0){
+            assertTrue(true);
+        }else{
+            assertTrue(false);
+        }
     }
 
     @Test
     public void getBoardSearch() throws Exception {
-
+        List<ModelBoard> result = null;
+        ModelBoard board = new ModelBoard();
+        
+        board.setBoardcd("faq");
+        board.setBoardnm(null);
+        
+        result = service.getBoardSearch(board);
+        
+        if(result!=null){
+            assertTrue(true);
+        }else{
+            assertTrue(false);
+        }
     }
 
     @Test
     public void getBoardPaging() throws Exception {
-
+        String boardcd = "free";
+        String searchWord = "article";
+        int start = 1;
+        int end = 5;
+        
+    
+        
+        List<ModelArticle> result = service.getArticleList(boardcd,searchWord,start,end);
+        
+        assertEquals(result.size(), 5);
     }
 
     @Test
     public void insertBoardList() throws Exception {
-
+        
+        
+        List<ModelBoard> list =new ArrayList<ModelBoard>();
+        
+        ModelBoard insert1 = new ModelBoard();
+        
+        insert1.setBoardcd("insert1");
+        insert1.setBoardnm("test");
+        insert1.setUseYN(true);
+        
+        ModelBoard insert2 = new ModelBoard();
+        insert2.setBoardcd("insert2");
+        insert2.setBoardnm("test2");
+        insert2.setUseYN(true);
+        
+        list.add(insert1);
+        list.add(insert2);
+        
+        int result=service.insertBoardList(list);
+        
+        assertSame(result, 2);
     }
 
     @Test
@@ -121,7 +195,6 @@ public class ServiceBoardTest {
 
     @Test
     public void getArticleList() throws Exception {
-        ModelArticle article = new ModelArticle();
         
         String boardcd = "free";
         String searchWord = "article";
@@ -132,7 +205,7 @@ public class ServiceBoardTest {
         
         List<ModelArticle> result = service.getArticleList(boardcd,searchWord,start,end);
         
-        assertEquals(result, 5);
+        assertEquals(result.size(), 5);
         
     }
 
