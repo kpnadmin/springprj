@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java23.mybatis.model.ModelBook;
 import java24.board.dao.DaoBoard;
 import java24.board.infc.IBoard;
 import java24.board.model.ModelArticle;
@@ -70,14 +69,14 @@ public class ServiceBoard implements IBoard{
 
     @Override
     public List<ModelBoard> getBoardListResultMap() {
-        
+      
         return null;
     }
 
     @Override
     public Integer insertBoard(ModelBoard board) {
         
-  int result = -1 ; 
+        int result = -1 ; 
         
         try {
             result = dao.insertBoard(board);
@@ -92,31 +91,72 @@ public class ServiceBoard implements IBoard{
     @Override
     public Integer updateBoard(ModelBoard searchValue, ModelBoard updateValue) {
         
-        return null;
+        int result = -1 ; 
+        
+        try {
+            result = dao.updateBoard(searchValue,updateValue);
+        } catch (Exception e) {
+            log.error("updateBoard"+e.getMessage());
+        }
+        
+        return result;
     }
 
     @Override
     public Integer deleteBoard(ModelBoard board) {
         
-        return null;
+        int result = -1 ; 
+        
+        try {
+            result = dao.deleteBoard(board);
+        } catch (Exception e) {
+            log.error("deleteBoard"+e.getMessage());
+        }
+        
+        return result;
     }
 
     @Override
     public List<ModelBoard> getBoardSearch(ModelBoard board) {
         
-        return null;
+        List<ModelBoard> result = null;
+        
+        try {
+            result = dao.getBoardSearch(board);
+        } catch (Exception e) {
+            log.error("getBoardSearch"+e.getMessage());
+
+        }
+
+
+        return result;
     }
 
     @Override
-    public List<ModelBoard> getBoardPaging(String boardcd, String boardnm, Boolean UseYN) {
+    public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) {
+        List<ModelBoard> result = null;
         
-        return null;
+        try {
+            result = dao.getBoardPaging(boardcd, searchWord,  start,  end);
+        } catch (Exception e) {
+            log.error("getBoardPaging"+e.getMessage());
+
+        }
+        
+        return result;
     }
 
     @Override
-    public Integer insertBoardList(List list) {
+    public Integer insertBoardList(List<ModelBoard> list) {
+        int result=-1;
+        try {
+            result = dao.insertBoardList(list);
+        } catch (Exception e) {
+            log.error("insertBoardList"+e.getMessage());
+
+        }
         
-        return null;
+        return result;
     }
 
     @Override

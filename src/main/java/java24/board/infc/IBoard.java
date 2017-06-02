@@ -3,7 +3,6 @@ package java24.board.infc;
 import java.util.HashMap;
 import java.util.List;
 
-import java23.mybatis.model.ModelBook;
 import java24.board.model.ModelArticle;
 import java24.board.model.ModelAttachfile;
 import java24.board.model.ModelBoard;
@@ -79,13 +78,13 @@ public interface IBoard {
      * 마지막으로 start,end 범위 조회
      */    
     
-    List<ModelBoard> getBoardPaging(String boardcd, String boardnm, Boolean UseYN);
+    List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end);
     
     /**
      * Board테이블에 추가할 item.(boardcd,boardnm,UseYN)을 리스트에 추가<br>
      * 추가된 리스트를 불러온뒤 항목수 만큼 값을 Board테이블에 추가.
      */
-    Integer insertBoardList(java.util.List  list);
+    Integer insertBoardList(List<ModelBoard> list);
     
     /**
      * Article 테이블의 모든컬럼을 카운트<br>

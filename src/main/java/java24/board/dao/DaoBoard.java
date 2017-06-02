@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import java23.mybatis.model.ModelBook;
 import java24.board.infc.IBoard;
 import java24.board.model.ModelArticle;
 import java24.board.model.ModelAttachfile;
@@ -65,14 +64,14 @@ public class DaoBoard implements IBoard{
         
         int result = -1 ;
         result = session.update("mapper.mapperBoard.updateBoard", map);
-         return result;
+        return result;
 	}
 
 	@Override
 	public Integer deleteBoard(ModelBoard board) {
 	    int result = -1 ;
         result = session.delete("mapper.mapperBoard.deleteBoard", board);
-         return result;
+        return result;
 	}
 
 	@Override
@@ -83,11 +82,13 @@ public class DaoBoard implements IBoard{
 	}
 
 	@Override
-	public List<ModelBoard> getBoardPaging(String boardcd, String boardnm, Boolean UseYN) {
-	    Map<String, Object> map = new HashMap<String, Object>();
-	    map.put("boardcd", boardcd);
-        map.put("boardnm", boardnm);
-        map.put("UseYN", UseYN);
+	public List<ModelBoard> getBoardPaging(String boardcd, String searchWord, int start, int end) {
+	    Map<String, Object> map = new HashMap();
+	    
+        map.put("boardcd", boardcd);
+        map.put("searchWord", searchWord);
+        map.put("start", start);
+        map.put("end", end);
         
         List<ModelBoard> result = null;  
         result = session.selectList("mapper.mapperBoard.getBoardPaging", map);
@@ -95,9 +96,12 @@ public class DaoBoard implements IBoard{
 	}
 
 	@Override
-	public Integer insertBoardList(List list) {
-		
-		return null;
+	public Integer insertBoardList(List<ModelBoard> list) {
+	    int result=-1;
+	    
+	    result = session.insert("mapper.mapperBoard.insertBoardList", list);
+        
+		return result;
 	}
 
 	@Override
